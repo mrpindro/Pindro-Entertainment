@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pindro©</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navContainer">
+            <a href="#home" class="control activeBtn logo" data-id="home">
+                <img src="img/logo.jpeg" alt="">
+            </a>
+            <div class="search-bar-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="searchBar">
+                <input type="text" placeholder="search..." id="mySearch" title="Type in a film">
+                <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            </div>
+
+            <div class="navigation">
+                <div class="filmControl control" data-id="films">
+                    <p>Films</p>
+                    <a href="#films">
+                        <i class="fa-solid fa-film"></i>
+                    </a>
+                </div>
+                <div class="seasonControl control" data-id="series">
+                    <p>Series</p>
+                    <a href="#series">           
+                        <i class="fa-solid fa-video"></i>
+                    </a>
+                </div>
+                <div class="catalogueControl control" data-id="catalogue">
+                    <p>Catalogue</p>
+                    <a href="#catalogue">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="toggle-color" id="toggle-color">
+                <span id="toggle-color-span"></span>
+            </div>
+            <div class="profiles">
+                <div class="profIcons">
+                    <i class="fa-solid fa-bars"></i>
+                    <img src="img/user.png" alt="User">
+                </div>
+                <div class="profLists">
+                    <h3>Username</h3>
+                    <hr>
+                    <p class="accountLogin">Login</p>
+                    <div class="nav-btns">
+                        <hr>
+                        <a href="#films" class="filmControl control" data-id="films">
+                            <p>Films</p>
+                        </a>
+                        <hr>
+                        <a href="#series" class="seasonControl control" data-id="series">
+                            <p>Series</p>
+                        </a>
+                        <hr>
+                        <a href="#catalogue" class="catalogueControl control" data-id="catalogue">
+                            <p>Catalogue</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="searchMenu" id="mySearchMenu">
+            <!-- <a href="" class="card">
+                <img src="" alt="">
+                <div class="content">
+                    <h2 class="title">Blood diamond</h2>
+                    <p class="year-rating"><span><i></i></span></p>
+                </div>
+            </a> -->
+        </div>
+        <!-- <ul id="mySearchMenu" class="searchMenu" style="display: none;">
+            <li>
+                <a href="#" class="control" data-id="filmSynopsis"
+                    onclick="displayImg('img/blood-diamond.jpg', 'Blood Diamond', 'vid/Blood-Diamond.MP4', 'vid/Blood-Diamond.MP4')"
+                >
+                    Blood Diamond <span><img src="img/bloodDiamond.jpg" alt=""></span>
+                </a>
+            </li>          
+        </ul> -->
+    </header>
+    <form action="" class="logRegForm">
+        <div class="login">
+            <div class="closeLogReg">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="formHeading">Login</div>        
+            <div class="loginInput">
+                <h2>Username</h2>
+                <div class="usernameDiv">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" placeholder="Username or email" id="login-username">
+                </div>
+                <h2>Password</h2>
+                <div class="passwordDiv">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="login-password">
+                </div>
+                <button class="submitBtn">Sign in</button>
+            </div>
+            <div class="alternativeLog">
+                <div class="google altDiv">
+                    <i class="fa-brands fa-google"></i>
+                    <p>Login using google</p>
+                </div>
+                <div class="facebook altDiv">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <p>Login using facebook</p>
+                </div>
+            </div>
+            <div class="formImprovise">
+                <p>
+                    First time using Pindro Entertainment? <span class="improvReg" id="improvLog">Register</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="register">
+            <div class="closeLogReg">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="formHeading">Register</div>        
+            <div class="loginInput">
+                <h2>Email</h2>
+                <div class="usernameDiv">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" placeholder="Email" id="reg-email">
+                </div>
+                <h2>Username</h2>
+                <div class="usernameDiv">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Username" id="reg-username">
+                </div>
+                <h2>Password</h2>
+                <div class="passwordDiv">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="reg-password">
+                </div>
+                <button class="submitBtn">Sign up</button>
+            </div>
+            <div class="alternativeLog">
+                <div class="google altDiv">
+                    <i class="fa-brands fa-google"></i>
+                    <p>Register using google</p>
+                </div>
+                <div class="facebook altDiv">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <p>Register using facebook</p>
+                </div>
+            </div>
+            <div class="formImprovise">
+                <p>
+                    Already have an account? <span class="improvReg" id="improvReg">Login</span>
+                </p>
+            </div>
+        </div>
+    </form>
+    <div class="dullBg"></div>
+    <main>       
+    
+        <section class="container homeCon active" id="home">
+            <div class="home">
+                <div class="homeContainer">
+                    <!-- <div class="home1">
+                        <div class="bgImg" id="greenBook">
+                            <img src="img/green-book.jpg" alt="">
+                            <button class="playBtn" onclick="playFilm('vid/Green-Book.MP4')">
+                                <i id="playBtn" class="fa-sharp fa-solid fa-play"></i>
+                                Watch
+                                <span>2mins 30s</span>
+                            </button>
+                            <p><span>Green Book</span> is a 2018 American biographical comedy-drama film 
+                                directed by Peter Farrelly. Starring Viggo Mortensen and Mahershala Ali, 
+                                the film is inspired by the true story 
+                                of a 1962 tour of the Deep South by African American pianist Don Shirley 
+                                and Italian American bouncer and later actor Frank "Tony Lip" Vallelonga, 
+                                who served as Shirley's driver and bodyguard. 
+                                Written by Farrelly alongside Lip's son Nick Vallelonga and Brian Hayes Currie, 
+                                the film is based on interviews with Lip and Shirley, 
+                                as well as letters Lip wrote to his then-wife. 
+                                 [6] It is named after The Negro Motorist Green Book, 
+                                  a guide book for African American travelers founded by 
+                                   Victor Hugo Green in 1936 and published until 1966.
+                            </p>
+                        </div>                    
+                    </div> -->
+                    
+                </div>
+
+                <!-- HOME PAGINATION ----------------------------- -->
+                <div class="paginations">
+                    <button id="paginationBtn"></button>
+                    <button id="paginationBtn"></button>
+                    <button id="paginationBtn"></button>               
+                    <button id="paginationBtn"></button>               
+                    <button id="paginationBtn"></button>               
+                    <button id="paginationBtn"></button>               
+                    <button id="paginationBtn"></button>               
+                </div>
+
+                <!-- CATEGORY BUTTTONS ----------------------------------------- -->
+                <div class="categories">
+                    <Button class="categoryBtn" id="actionBtn">Action</Button>
+                    <button class="categoryBtn" id="crimeBtn">Crime</button>
+                    <button class="categoryBtn" id="documentaryBtn">Documentary</button>
+                    <button class="categoryBtn" id="dramaBtn">Drama</button>
+                    <button class="categoryBtn" id="biographyBtn">Biography</button>
+                    <button class="categoryBtn" id="scifiBtn">SciFi</button>
+                    <button class="categoryBtn" id="fantasyBtn">Fantasy</button>
+                    <button class="categoryBtn" id="adventureBtn">Adventure</button>
+                    <button class="categoryBtn" id="horrorBtn">Horror</button>
+                    <button class="categoryBtn" id="nsfwBtn">NSFW</button>
+                    <button class="categoryBtn" id="animationBtn">Animation</button>
+                    <button class="categoryBtn" id="westernBtn">Western</button>
+                    <button class="categoryBtn" id="romanceBtn">Romance</button>
+                </div>
+
+                <!-- SHOW CATEGORY ------------------------------------------ -->
+                <div class="showCato">
+                    <div class="action-bx"></div>
+                    <div class="crime-bx"></div>
+                    <div class="documentary-bx"></div>
+                    <div class="drama-bx"></div>
+                    <div class="biography-bx"></div>
+                    <div class="scifi-bx"></div>
+                    <div class="fantasy-bx"></div>
+                    <div class="adventure-bx"></div>
+                    <div class="horror-bx"></div>
+                    <div class="nsfw-bx"></div>
+                    <div class="animation-bx"></div>
+                    <div class="western-bx"></div>
+                    <div class="romance-bx"></div>
+                </div>
+            </div>
+        </section>
+        
+            
+        <!-- <div class="slider">
+            <i class="fa-solid fa-angle-right" id="slideBtn"></i>
+        </div>
+        <div class="slider">
+            <i class="fa-solid fa-angle-right fa-rotate-180" id="slideBtn1"></i>
+        </div>
+        <div class="slider">
+            <i class="fa-solid fa-angle-right" id="slideBtn"></i>
+        </div> -->
+        
+            
+
+        <!-- Film--------------------------------------------------  -->
+        <section class="container films" id="films">
+            <div class="film">
+                <div class="film1">
+
+                    <!-- <div class="card control" data-id="filmSynopsis" 
+                        onclick="displayImg('img/malcolm-x.jpeg', 'Malcolm X', 'vid/Malcolm X.MP4', 'vid/Malcolm X.MP4')"
+                        id="biography"
+                    >
+                        <img src="img/malcolm-x.jpeg" alt="">
+                        <h2 class="title">Malcolm X</h2>
+                        <p class="year-rating">1992 <span>9.0<i class="fa-solid fa-star"></i></span></p>
+                    </div>  -->
+                </div>
+            </div>
+
+            <div class="film-paginations">
+                <button id="film-paginationBtn">1</button>
+                <button id="film-paginationBtn">2</button>
+                <button id="film-paginationBtn">3</button>               
+                <button id="film-paginationBtn"><i class="fa-solid fa-angle-right"></i></button>               
+            </div>
+        </section>
+
+        <!-- series page --------------------------------------- -->
+        <section class="container seasons" id="series">
+            <div class="season">
+                <div class="season1">
+
+                    <!-- <div class="card control" data-id="seasonSynopsis" 
+                        onclick="displaySeasonImg('img/theundergroundrailroad2021.jpg', 'The underground railroad', 'vid/The-Underground-Railroad.MP4', 'vid/The-Underground-Railroad.MP4')"
+                    >
+                        <img src="img/theUndergroundRailroad-2021.jpeg" alt="">
+                        <h2 class="title">The Underground Railroad</h2>
+                        <p class="year-rating">2021 <span>7.5<i class="fa-solid fa-star"></i></span></p>
+                    </div>                     -->
+                </div>
+            </div>
+            <div class="season-paginations">
+                <button id="season-paginationBtn">1</button>
+                <button id="season-paginationBtn">2</button>
+                <button id="season-paginationBtn">3</button>               
+                <button id="season-paginationBtn"><i class="fa-solid fa-angle-right"></i></button>               
+            </div>
+                
+        </section>
+
+        <!-- FILM SYNOPSIS PAGE  -->
+        <section class="container" id="filmSynopsis">
+            <div class="filmSynop">
+                <div class="filmBgVid">
+                    <video src="vid/Green-Book.MP4" autoplay muted loop class="filmBgVidV" id="bgVideos">
+
+                    </video>
+                </div>
+                <div class="synopsisContainer">
+                    <div class="videoImg">
+                        <i id="exitSynopsis" data-id="films" class="fa-solid fa-arrow-left control"></i>
+                        <img src="img/green-book.jpg" alt="" id="synopImg">
+                        <button id="playBtn" onclick="playFilm('vid/Green-Book.MP4')">Play <i class="fa-sharp fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="synop-cato">
+                        <button class="synopCatoBtn" id="trailer">
+                            Trailer <i class="fa-solid fa-film"></i></button>
+                        <button class="synopCatoBtn">Watchlist <i class="fa-solid fa-plus"></i></button>
+                        <button class="synopCatoBtn">Like <i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="synopsis">
+                        <p><span id="title">Green Book</span> <details class="synop-content">is a 2018 American biographical comedy-drama film
+                            directed by Peter Farrelly. Starring Viggo Mortensen and Mahershala Ali, 
+                            the film is inspired by the true story
+                            of a 1962 tour of the Deep South by African American pianist Don Shirley
+                            and Italian American bouncer and later actor Frank "Tony Lip" Vallelonga, 
+                            who served as Shirley's driver and bodyguard. 
+                            Written by Farrelly alongside Lip's son Nick Vallelonga and Brian Hayes Currie, 
+                            the film is based on interviews with Lip and Shirley, 
+                            as well as letters Lip wrote to his then-wife. <br>
+                            It is named after The Negro Motorist Green Book, 
+                            a guide book for African American travelers founded by
+                            Victor Hugo Green in 1936 and published until 1966.</details>
+                        </p>
+                    </div>
+                    <h2 class="cast-heading">Cast</h2>
+                    <div class="castList">
+                        <div class="cast">
+                            <div class="img-name">
+                                <img src="cast/Mahershala Ali.jpeg" alt="">
+                                <p>Mahershala Ali</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Viggo Mortesen.jpeg" alt="">
+                                <p>Viggo Mortesen</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Linda Cardellini.jpeg" alt="">
+                                <p>Linda Cardellini</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Dimiter D. Marinov.jpeg" alt="">
+                                <p>Dimiter D. Marinov</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Sebastian Maniscalco.jpeg" alt="">
+                                <p>Sebastian Maniscalco</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERIES SYNOPSIS PAGE  -->
+        <section class="container" id="seasonSynopsis">
+            <div class="seasonSynops">
+                <div class="seasonBgVid">
+                    <video src="vid/The-Underground-Railroad.MP4" autoplay muted loop class="seasonBgVidV" id="seasonBgVideos">
+
+                    </video>
+                </div>
+                <div class="synopsisContainer seasonSynop">
+                    <div class="videoImg">
+                        <i id="exitSynopsis" data-id="series" class="fa-solid fa-arrow-left control"></i>
+                        <img src="img/theundergroundrailroad2021.jpg" alt="" id="seasonImg">
+                        <button id="seasonNum">
+                            <select name="" id="seasonsIndic">                           
+                                <option value="" id="season1">Season 1</option>
+                                <option value="" id="season2" style="display: none;">Season 2</option>
+                                <option value="" id="season3" style="display: none;">Season 3</option>
+                                <option value="" id="season4" style="display: none;">Season 4</option>
+                                <option value="" id="season5" style="display: none;">Season 5</option>
+                                <option value="" id="season6" style="display: none;">Season 6</option>
+                                <option value="" id="season7" style="display: none;">Season 7</option>
+                                <option value="" id="season8" style="display: none;">Season 8</option>
+                                <option value="" id="season9" style="display: none;">Season 9</option>
+                            </select>
+
+                            <div class="season-count">1 Season</div>
+                        </button>
+                    </div>
+                    <div class="synop-cato">
+                        <!-- <button class="synopCatoBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')"> -->
+                        <button class="synopCatoBtn" id="seasonTrailer">
+                            Trailer <i class="fa-solid fa-film"></i>
+                        </button>
+                        <button class="synopCatoBtn">Watchlist <i class="fa-solid fa-plus"></i></button>
+                        <button class="synopCatoBtn">Like <i class="fa-solid fa-heart"></i></button>
+                    </div>
+                    <div class="synopsis">
+                        <p><span id="seasonTitle">The Underground Railroad</span> <details class="seasonSynopContent"> 
+                            is an American historical drama 
+                            streaming television limited series created and directed by Barry Jenkins based 
+                            on the 2016 novel of the same name by Colson Whitehead. The series premiered on 
+                            Amazon Prime Video on May 14, 2021.
+    
+                            The series won the Golden Globe Award for Best Miniseries or Television Film, 
+                            the BAFTA for Best International Programme, received a Peabody Award, and 
+                            garnered several other nominations including the Primetime Emmy Award for 
+                            Outstanding Limited or Anthology Series.</details>
+                        </p>
+                    </div>
+                    <div class="episodes">
+                        <!-- <div class="episode">
+                            <button id="splayBtn">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 1</h4>  <p class="episode-name">Chapter 1: Georgia</p></span>
+                            </button>
+                        </div> -->
+                        <!-- <div class="episode">
+                            <button id="splayBtn">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 2</h4>  <p class="episode-name">Chapter 2: South Carolina</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 3</h4>  <p class="episode-name">Chapter 3: North Carolina</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 4</h4>  <p class="episode-name">Chapter 4: The great spirit</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 5</h4>  <p class="episode-name">Chapter 5: Tennesse - Exodus </p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 6</h4>  <p class="episode-name">Chapter 6: Tennesse - Exodus</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 7</h4>  <p class="episode-name">Chapter 7: Fanny Briggs</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 8</h4>  <p class="episode-name">Chapter 8: Indiana Autumn</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 9</h4>  <p class="episode-name">Chapter 9: Indiana Winter</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 10</h4>  <p class="episode-name">Chapter 10: Mabel</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 11</h4>  <p class="episode-name">Chapter 10: Mabel</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 12</h4>  <p class="episode-name">Chapter 10: Mabel</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 13</h4>  <p class="episode-name">Chapter 10: Mabel</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 14</h4>  <p class="episode-name">Chapter 10: Mabel</p></span>
+                            </button>
+                        </div>
+                        <div class="episode">
+                            <button id="splayBtn" onclick="playVideo('vid/The-Underground-Railroad.MP4')">
+                                <i class="fa-sharp fa-solid fa-play"></i> 
+                                <span><h4>Episode 15</h4>  <p class="episode-name">Chapter 10: Mabel</p></span>
+                            </button>
+                        </div> -->
+                    </div>
+                    <h2 class="cast-heading">Cast</h2>
+                    <div class="castList">
+                        <div class="cast">
+                            <div class="img-name">
+                                <img src="cast/Thuso Mbedu.jpeg" alt="" class="cast-img">
+                                <p class="cast-name">Thuso Mbedu</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Chase Dillon.jpeg" alt="" class="cast-img">
+                                <p class="cast-name">Chase Dillon</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Aaron Pierre.jpeg" alt="" class="cast-img">
+                                <p class="cast-name">Aeron Pierre</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Joel Edgerton.jpeg" alt="" class="cast-img">
+                                <p class="cast-name">Joel Edgerton</p>
+                            </div>
+                            <div class="img-name">
+                                <img src="cast/Sheila Atim.jpeg" alt="" class="cast-img">
+                                <p class="cast-name">Sheila Atim</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalogue page  -->
+        <section class="container" id="catalogue">
+            <div class="cataloguePage">
+                <h1>Catalogue</h1>
+                <button id="cataBtn1" class="cataBtn">press1</button> <br>
+                <button id="cataBtn2" class="cataBtn">press2</button>
+                <div class="cataContainer">                   
+                    No!
+                </div>
+                <p id="para">Yes please!</p>
+            </div>
+        </section>
+    </main>
+
+    <div class="myVideo" id="myVideo">
+        <video id="videos" src="" controls></video>
+        <i id="closeVideo" class="fa-solid fa-xmark"></i>
+    </div>
+
+    <footer>
+        <div class="footer-con">
+            <a href="#home" class="footer-logo control" data-id="home">
+                    <img src="img/logo.jpeg" alt="">
+            </a>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#films" class="control" data-id="films">Films</a></li>
+                    <li><a href="#series" class="control" data-id="series">Series</a></li>
+                    <li><a href="#catalogue" class="control" data-id="catalogue">Catalogue</a></li>
+                </ul>
+            </div>
+            <div class="socials">
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+        <div class="right-reserved">
+            <h1>All right reserved</h1>
+            <p>Copyright© 2023 website created by Austine Pindro</p>
+        </div>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
