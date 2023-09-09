@@ -1701,6 +1701,10 @@ footer .right-reserved p{
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .film-bg-vid {
+        display: none;
+    }
+
 }
 
 
