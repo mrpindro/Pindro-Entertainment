@@ -4,17 +4,18 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    font-family: sans pro, "Cursive";
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 :root {
     --white: #fff;
     --black: #000;
+    --red: #ff0000;
     --primaryColor: #212020;
     --secondaryColor: #e2e0e0;
     --grey: #7f7e7e;
     --dark-grey: #191919;
-    --box-shadow: 2px 5px 3px 3px #0a0a0a23;
-    --box-shadow-bg: 0px 10px 10px 7px #0a0a0a43;
+    --box-shadow: 0 0 3px #0a0a0a23;
+    --box-shadow-bg: 0 0 7px #0a0a0a43;
     --background: #e3e0e04e;
     --LogRegBg: #eeebebc6;
     --LogRegFormBg: #0b0b0bc6;
@@ -32,46 +33,35 @@
     --secondaryColor: #212020;
     --grey: #191919;
     --dark-grey: #7f7e7e;
-    --box-shadow: 2px 5px 3px 3px #0a0a0a23;
-    --box-shadow-bg: 0px 10px 10px 7px #0a0a0a43;
+    --box-shadow: 0 0 3px #0a0a0a23;
+    --box-shadow-bg: 0 0 7px #0a0a0a43;
     --background: rgba(18, 17, 17, 0.444);
     --LogRegBg: #eeebebc6;
     --LogRegFormBg: #0b0b0bc6;
     --darkBackground: #e3e0e04e; 
     --greenAccent: #7df5b5e4;
     --green: rgb(5, 237, 5);
-    --star-yellow: #fcd254;
+    --star-yellow: #fabd06;
     --redAccent: rgb(252, 5, 5);
 }
 body {
-    background: url(img/button-background-image.webp) no-repeat;
-    color: var(--primaryColor);
-    position: relative;
-    overflow-x: hidden;
+    background: url(image/button-background-image.webp) no-repeat;
+    background-color: var(--primaryColor);
+    background-blend-mode: multiply;
+    color: var(--secondaryColor);
     scroll-behavior: smooth;
+    overflow-x: hidden;
     width: 100vw;
 }
-.dullBg {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    background: var(--black);
-    opacity: 70%;
-    top: 0;
-    bottom: 0;
-    margin: none;
-}
 details {
-    color: var(--secondaryColor);
     cursor: pointer;
+    width: 100%;
+    text-align: center;
 }
-select {
-    background: transparent;
-    color: var(--secondaryColor);
-    border-radius: 3px;
-    outline: none;
+button {
     cursor: pointer;
+    border: 0;
+    outline: 0;
 }
 header {
     position: sticky;
@@ -81,7 +71,7 @@ header {
     background: var(--black);
     padding: 5px;
     margin: none;
-    z-index: 999;
+    z-index: 998;
 }
 header .navContainer {
     display: flex;
@@ -115,17 +105,17 @@ header .navContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:350px;
-    height: 45px;
-    background: var(--background);
-    border-radius: 50px;
-    box-shadow: var(--box-shadow);
-}
-.navContainer .searchBar input{
     width: 350px;
     height: 45px;
-    padding: 10px;
+    background: var(--background);
     border-radius: 25px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+.navContainer .searchBar input{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
     outline: none;
     border: none;
     background: transparent;
@@ -173,75 +163,6 @@ header .navContainer {
     color: var(--white);
     transition: all ease-in-out 1s;
 }
-.navigation .filmControl {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.navigation .filmControl p {
-    position: absolute;
-    font-size: 13px;
-    border-radius: 50%;
-    padding: 15px 9px;
-    background: var(--greenAccent);
-    color: var(--secondaryColor);
-    left: 0;
-    top: 0;
-    z-index: 1;
-    display: none;
-    cursor: pointer;
-}
-.navigation .filmControl:hover p {
-    display: unset;
-    transition: all 1s ease-in-out;
-}
-.navigation .seasonControl {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.navigation .seasonControl p {
-    position: absolute;
-    font-size: 13px;
-    border-radius: 50%;
-    padding: 15px 9px;
-    background: var(--greenAccent);
-    color: var(--secondaryColor);
-    left: 0;
-    top: 0;
-    z-index: 1;
-    display: none;
-    cursor: pointer;
-}
-.navigation .seasonControl:hover p {
-    display: unset;
-    transition: all 1s ease-in-out;
-}
-.navigation .catalogueControl {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.navigation .catalogueControl p {
-    position: absolute;
-    font-size: 9px;
-    border-radius: 50%;
-    padding: 19px 7px;
-    background: var(--greenAccent);
-    color: var(--secondaryColor);
-    left: 0;
-    top: 0;
-    z-index: 1;
-    display: none;
-    cursor: pointer;
-}
-.navigation .catalogueControl:hover p {
-    display: unset;
-    transition: all 1s ease-in-out;
-}
 .toggle-color {
     width: 40px;
     height: 20px;
@@ -268,7 +189,6 @@ header .navContainer {
     justify-content: center;
     height: 50px;
     width: 100px;
-    /* border: 1px solid #000; */
     border-radius: 25px;
     background: var(--grey);
     transition: all .5s linear;
@@ -316,7 +236,6 @@ header .navContainer {
 }
 
 /* JAVASCRIPT CLASSES START */
-
 .profiles .profList {
     display: unset;
 }
@@ -361,7 +280,7 @@ header .navContainer {
     width: 100vw;
     height: 100vh;
     background: var(--LogRegFormBg);
-    z-index: 10;
+    z-index: 999;
     top: 0;
     gap: 10px;
 }
@@ -371,7 +290,7 @@ header .navContainer {
     flex-direction: column;
     gap: 5px;
     width: 30em;
-    height: 31em;
+    height: 32em;
     z-index: 20;
     border-radius: 15px;
     background: var(--LogRegBg);
@@ -410,7 +329,6 @@ header .navContainer {
     gap: 15px;
     width: 30em;
     height: 38em;
-    /* border: 1px solid #000; */
     z-index: 20;
     border-radius: 15px;
     background: var(--LogRegBg);
@@ -515,7 +433,6 @@ header .navContainer {
     padding: 10px;
 }
 .formImprovise {
-    /* margin-top: 15px; */
     padding: 15px;
 }
 .formImprovise p {
@@ -541,7 +458,7 @@ header .navContainer {
     overflow: scroll;
     position: absolute;
     top: 70px;
-    left: 22.5%;
+    left: 30%;
     z-index: 9;
     transition: all .5s linear;
     display: none;
@@ -551,6 +468,7 @@ header .navContainer {
 }
 .searchMenu .card {
     position: relative;
+    color: var(--primaryColor);
     width: 100px;
     min-width: 100px;
     min-height: 130px;
@@ -585,11 +503,49 @@ header .navContainer {
 }
 
 
+/* VIDEO PLAYER SECTION ------------------------------- */
+.myVideo{
+    position: fixed;
+    width: 70vw;
+    height: 90vh;
+    z-index: 99;
+    top: 120px;
+    left: 250px;
+    display: none;
+    outline: none;
+    border-radius: 20px;
+}
+.myVideo video{
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    z-index: 1;
+    background: var(--black);
+    border-radius: 20px;
+}
+.myVideo i{
+    position: absolute;
+    font-size: 20px;
+    color: var(--white);
+    background: var(--primaryColor);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 2;
+    top: 1%;
+    right: 2%;
+    cursor: pointer;
+}
 
+/* All page ===========================================================  */
+/* All page ===========================================================  */
 .control.activeBtn i {
     background: var(--black);
     color: var(--white);
     transition: all ease-in-out 1s;
+}
+
+.container {
+    min-height: 100vh;
 }
 section {
     display: none;
@@ -610,187 +566,146 @@ section {
     }
 }
 
-/* home page ---------------------------------------------- */
-/* home page ---------------------------------------------- */
 
-.homeCon {
+/* Home page ===========================================================  */
+/* Home page ===========================================================  */
+.home-con {
     overflow: hidden;
 }
-.home {
-    height: 130vh;
+.home-container {
+    min-height: 130vh;
     position: relative;
     width: auto;
     display: flex;
     flex-direction: column;
 }
-.home .categories {
+.home-container .home-billboard {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: auto;
-    height: auto;
-    background: var(--darkBackground);
-    border-radius: 10px;
-    padding: 10px;
-    overflow-x: scroll;
-    transition: all .5s ease-in-out;
-    margin: 5px 0;
-}
-.home .categories:hover {
-    box-shadow: var(--box-shadow);
-}
-.categories .categoryBtn {
-    width: 180px;
-    min-width: 180px;
-    height: 40px;
-    padding: 0 15px;
-    border-radius: 25px;
-    background: var(--greenAccent);
-    color: var(--secondaryColor);
-    border: none;
-    outline: none;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 0 5px;
-}
-.categories .categoryBtn:hover {
-    box-shadow: var(--box-shadow);
-    background: transparent;
-    outline: var(--black);
-    transition: all .5s ease-in-out;
-}
-.home .homeContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
     height: 90Vh;
-    width: 1100vw;
+    width: auto;
     border-radius: 6px;
     background: transparent;
-    overflow: hidden;
     transition: all 1s ease-in-out;
+
 }
-.homeContainer .home1 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.home-container .home-billboard .home-page {
+    min-width: 100vw;
     height: 100%;
-    width: 100vw;
-    border-radius: 6px;
-    background: transparent;
+    display: flex;
+    position: relative;
     overflow: hidden;
-    margin: none;
+    margin: 0;
 }
-.homeContainer .home1::before {
-    content: '';
+.home-container .home-billboard .home-page::before {
     position: absolute;
-    z-index: 3;
+    z-index: 1;
+    content: '';
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, 
-        var(--primaryColor), var(--primaryColor), 
-        #faf9f902, #faf9f902, #faf9f902, 
-        var(--primaryColor), var(--primaryColor)
+    background: linear-gradient(to right, 
+        #000, #000, 
+        transparent
     );
 }
-.homeContainer .home1::after {
-    content: '';
-    position: absolute;
-    z-index: 3;
-    width: 100%;
+.home-container .home-billboard .home-page .synop-title-etc {
+    width: 40%;
     height: 100%;
-    background: linear-gradient(360deg, 
-        var(--primaryColor), 
-        #faf9f902, #faf9f902, 
-        var(--primaryColor)
-    );
-}
-.home1 .bgImg {
-    position: relative;
-    height: 95%;
-    width: 75%;
-    padding: 0;
-    background: var(--darkBackground);
-    border-radius:20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    transition: all .5s ease-in-out;
-}
-.home1 .bgImg::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
+    gap: 10px;
+    padding: 10px;
     position: absolute;
     z-index: 2;
-    border-radius: 20px;
+    color: #fff;
 }
-.home1 .bgImg:hover {
-    box-shadow: var(--box-shadow-bg);
+.home-container .home-billboard .home-page .synop-title-etc .year {
+    text-decoration: underline;
 }
-.home1 .bgImg img {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    left: 0;
-    top: 0;
-}
-.home1 .bgImg p {
-    position: absolute;
-    z-index: 4;
-    padding: 10px;
-    height: 100%;
-    width: 20%;
-    left: -10%;
-    top: 1%;
-    font-size: 16px;
-    font-weight: 400;
-    text-overflow: ellipsis;
-    color: var(--secondaryColor);
-}
-.home1 .bgImg p:hover {
-    color: var(--white);
-    transition: all 1s linear;    
-}
-.home1 .bgImg p span {
-    font-size: 20px;
-    font-weight: 200;
+.home-container .home-billboard .home-page .synop-title-etc .title {
     color: var(--redAccent);
+    font-size: 40px;
 }
-.home1 .bgImg .playBtn {
+.home-billboard .home-page .synop-title-etc .duration-playfilm {
+    padding: 5px 10px;
+    background-color: var(--greenAccent);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.home-billboard .home-page .synop-title-etc .duration-playfilm:hover {
+    opacity: 80%;
+}
+.home-billboard .home-page .synop-title-etc .duration-playfilm i {
+    font-size: 16px;
+}
+.home-container .home-billboard .home-page .big-img {
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    right: 0;
+}
+.home-container .home-billboard .home-page .big-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.home-paginations {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: var(--black);
+    gap: 5px;
+}
+.home-paginations .pagination-btn {
+    padding: 3px;
+    border-radius: 50%;
+}
+.home-paginations .pagination-btn:nth-child(3) {
+    padding: 2px;
+    border-radius: 50%;
+}
+.home-paginations .pagination-btn:nth-child(4) {
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.home-container .categories {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
     width: auto;
     height: auto;
-    gap: 5px;
+    gap: 10px;
+    background: var(--black);
+    padding: 20px 10px;
+    overflow-x: scroll;
+    margin: 5px 0;
+}
+.home-container .categories .category-btn {
+    min-width: 200px;
+    height: 50px;
+    border-radius: 25px;
     font-size: 20px;
+    border: 0;
+    outline: 0;
+    font-weight: 600;
     color: var(--secondaryColor);
-    background: var(--greenAccent);
-    padding: 10px 15px;
-    border-radius: 10px;
-    z-index: 5;
-    bottom: 30%;
-    left: -5%;
+    background-color: var(--greenAccent);
     cursor: pointer;
-    border: none;
 }
-.home1 .bgImg .playBtn:hover {
-    opacity: 90%;
-    box-shadow: var(--box-shadow);
+.home-container .categories .category-btn:hover {
+    opacity: 80%;
 }
-.home1 .bgImg .playBtn:focus {
-    outline: none;
-}
-
-.home .showCato {
-    height: 230px;
+.home-container .show-cato {
+    height: 280px;
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -798,27 +713,17 @@ section {
     background: var(--darkBackground);
     overflow-x: auto;
     position: relative;
+    /* border: 1px solid; */
+    margin-bottom: 10px;
 }
-.action-bx, 
-.crime-bx, 
-.documentary-bx,
-.drama-bx, 
-.biography-bx, 
-.scifi-bx, 
-.fantasy-bx, 
-.adventure-bx, 
-.horror-bx, 
-.nsfw-bx, 
-.animation-bx, 
-.western-bx, 
-.romance-bx {
+.category {
     position: absolute;
     width: 100%;
     height: 100%;
-    padding: 0;
+    padding: 0 10px;
     background: var();
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     overflow: hidden;
     overflow-x: scroll;
@@ -826,1718 +731,982 @@ section {
     top: 0;
     left: 0;
 }
-.action-bx .card, 
-.crime-bx .card,
-.documentary-bx .card,
-.drama-bx .card,
-.biography-bx .card,
-.scifi-bx .card,
-.fantasy-bx .card,
-.adventure-bx .card,
-.horror-bx .card,
-.nsfw-bx .card,
-.animation-bx .card,
-.western-bx .card,
-.romance-bx .card {
+
+
+/* Films page ===========================================================  */
+/* Films page ===========================================================  */
+.films-container {
     position: relative;
-    width: 140px;
-    min-width: 140px;
-    min-height: 200px;
-    height: 200px;
-    background: var(--white);
-    border-radius: 10px;
-    margin: 4px;
-    cursor: pointer;
-}
-.card img{
-    width: 100%;
-    height: 78%;
-    border-radius: 10px 10px 0 0;
-}
-.card .title{
-    font-size: 11px;
-    font-weight: 600;
-    text-overflow: ellipsis;
-    margin-left: 3px;
-}
-.card #playBtn {
-    font-size: 14px;
-    padding: 4px;
-    border-radius: 50%;
-    top: 45%;
-    left: 45%;
-    position: absolute;
-    z-index: 1;
-}
-.card #playBtn:hover {
-    font-size: 18px;
-    padding: 5px;
-}
-.card .year-rating{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    font-weight: 300;
-    margin-left: 3px;
-}
-.card .year-rating i {
-    font-size: 11px;
-    color: var(--star-yellow);
-}
-
-.paginations {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
-    background: var(--dark-grey);
-}
-.paginations #paginationBtn {
-    width: 10px;
-    height: 10px;
-    padding: 5px;
-    color: var(--secondaryColor);
-    font-size: 16px;
-    background: var(--greenAccent);
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    margin: 2px;
-    transition: all .5s linear;
-}
-.paginations #paginationBtn:hover {
-    color: var(--secondaryColor);
-    padding: 5px;
-    background: var(--dark-grey);
-}
-
-
-    /* VIDEO PLAYER SECTION ------------------------------- */
-.myVideo{
-    position: absolute;
-    width: 70vw;
-    height: 80vh;
-    z-index: 99;
-    top: 200px;
-    left: 250px;
-    display: none;
-    outline: none;
-    border-radius: 20px;
-}
-.myVideo video{
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    z-index: 1;
-    background: var(--black);
-    border-radius: 20px;
-}
-.myVideo i{
-    position: absolute;
-    font-size: 20px;
-    color: var(--white);
-    background: var(--primaryColor);
-    border-radius: 50%;
-    padding: 5px;
-    z-index: 2;
-    top: 1%;
-    right: 2%;
-    cursor: pointer;
-}
-
-
-/* film page ---------------------------------------------------- */
-.films {
-    overflow: hidden;
-    /* border: #000 2px solid; */
-    border-radius: 20px;
-    margin: 40px 0;
-    box-shadow: 3px 3px 5px 5px rgba(83, 34, 3, 0.296);
-}
-.film {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 200vw;
-    height: 78vh;
     padding: 10px;
-    overflow: auto;
-    position: relative;
-    transition: all .5s linear;
+    overflow-x: hidden;
 }
-.film .film1 {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-}
-.film1 .card {
-    position: relative;
-    width: 140px;
-    height: 200px;
-    background: var(--white);
-    border-radius: 10px;
-    margin: 0 14px;
-    cursor: pointer;
-}
-.film1 .card img{
-    width: 100%;
-    height: 78%;
-    border-radius: 10px 10px 0 0;
-}
-.film1 .card .title{
-    font-size: 11px;
-    font-weight: 600;
-    text-overflow: ellipsis;
-    margin-left: 3px;
-}
-.film1 .card #playBtn {
-    font-size: 14px;
-    padding: 4px;
-    color: var(--secondaryColor);
-    background: var(--greenAccent);
-    border-radius: 50%;
-    top: 45%;
-    left: 45%;
+.films-container h1 {
     position: absolute;
-    z-index: 1;
-}
-.film1 .card #playBtn:hover {
-    font-size: 18px;
-    padding: 5px;
-    background: var(--secondaryColor);
-    color: var(--black);
-}
-.film1 .card .year-rating{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    font-weight: 300;
-    margin-left: 3px;
-}
-.film1 .card .year-rating i {
-    font-size: 11px;
-    color: #fabd06;
-}
-
-.film-paginations {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 9;
-    bottom: 0;
-    left: 45%;
-}
-.film-paginations #film-paginationBtn {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    color: var(--primaryColor);
-    font-size: 16px;
-    background: var(--greenAccent);
-    border-radius: 3px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    margin: 2px;
-    transition: all .5s linear;
-}
-.film-paginations #film-paginationBtn:hover {
-    font-size: 17px;
-    color: var(--secondaryColor);
-    padding: 2px 7px;
-    background: var(--dark-grey);
-}
-.film-paginations #film-paginationBtn i {
-    font-size: 20px;
+    top: 0;
+    z-index: -1;
+    font-size: 200px;
     color: var(--grey);
-    padding: 0;
 }
-
-/* series page-----------------------------------------------------------  */
-.seasons {
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 3px 3px 5px 5px rgba(83, 34, 3, 0.296);
-}
-.season {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 200vw;
-    height: 78vh;
+.film-page {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
     padding: 10px;
-    overflow: auto;
-    position: relative;
-    transition: all .5s linear;
 }
-.season .season1 {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-}
-.season1 .card {
-    position: relative;
-    width: 140px;
-    height: 200px;
-    background: var(--white);
-    border-radius: 10px;
-    margin: 0 14px;
-    cursor: pointer;
-}
-.season1 .card img{
-    width: 100%;
-    height: 78%;
-    border-radius: 10px 10px 0 0;
-}
-.season1 .card .title{
-    font-size: 11px;
-    font-weight: 600;
-    text-overflow: ellipsis;
-    margin-left: 3px;
-}
-.season1 .card #playBtn {
-    font-size: 14px;
-    padding: 4px;
-    color: var(--secondaryColor);
-    background: var(--greenAccent);
-    border-radius: 50%;
-    top: 45%;
-    left: 45%;
-    position: absolute;
-    z-index: 1;
-}
-.season1 .card #playBtn:hover {
-    font-size: 18px;
-    padding: 5px;
-    background: var(--grey);
-    color: var(--primaryColor);
-}
-.season1 .card .year-rating{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    font-weight: 300;
-    margin-left: 3px;
-}
-.season1 .card .year-rating i{
-    font-size: 11px;
-    color: var(--star-yellow);
-}
-
-.season-paginations {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 9;
-    bottom: 0;
-    left: 45%;
-}
-.season-paginations #season-paginationBtn {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    color: var(--primaryColor);
-    font-size: 16px;
-    background: var(--greenAccent);
-    border-radius: 3px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    margin: 2px;
-    transition: all .5s linear;
-}
-.season-paginations #season-paginationBtn:hover {
-    font-size: 17px;
-    color: var(--secondaryColor);
-    padding: 2px 7px;
-    background: var(--dark-grey);
-}
-.season-paginations #season-paginationBtn i {
-    font-size: 20px;
-    color: var(--grey);
-    padding: 0;
-}
-
-/* CATALOGUE PAGE ------------------------------------------------ */
-.cataContainer {
+.card {
     width: 200px;
-    height: 100px;
-    border: var(--black) 1px solid;
-}
-.cataBtn {
-    width: 80px;
-    height: 30px;
-    margin-bottom: 10px;
-}
-
-
-/* FILM SYNOPSIS PAGE --------------------------------------------- */
-.filmSynop {
-    position: relative;
-    height: 120vh;
-    width: 70vw;
-    margin: 5% 15%;
-}
-.filmSynop .filmBgVid {
-    position: absolute;
+    min-width: 200px;
+    height: 250px;
+    min-height: 250px;
     display: flex;
-    height: 100%;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--black);
+    margin: 5px;
+    cursor: pointer;
+}
+.card .card-img-con {
     width: 100%;
-    background: var(--grey); 
-    border: 2px solid var(--black);
-    border-radius: 20px;
+    height: 60%;
+    overflow: hidden;
+}
+.card .card-img-con img {
+    width: 100%;
+    height: 100%;
+}
+.card .card-img-con img:hover {
+    transform: scale(calc(55% * 2));
+}
+.card .content {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.card .content .title, .card .content .year-rating {
+    width: 100%;
+    height: 50%;
+    padding: 5px;
+}
+.card .content .year-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.card .content .year-rating span i {
+    color: var(--star-yellow);
+}
+
+
+/* Series page ===========================================================  */
+/* Series page ===========================================================  */
+.series-container {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 0;
+    padding: 10px;
+    overflow-x: hidden;
 }
-.filmBgVid .filmBgVidV {
+.series-container h1 {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    font-size: 200px;
+    color: var(--grey);
+}
+
+
+/* Favorites page ===========================================================  */
+/* Favorites page ===========================================================  */
+.preferences-container {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow-x: hidden;
+}
+.preferences-container h1 {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    font-size: 200px;
+    color: var(--grey);
+}
+
+
+/* film synopsis page ===========================================================  */
+/* film synopsis page ===========================================================  */
+.film-synop-con {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+}
+.film-synop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 110vh;
+    height: auto;
+    width: 100%;
+}
+.film-bg-vid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.film-bg-vid video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
 }
-.filmSynop .synopsisContainer {
-    position: absolute;
+.film-synop-all {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    padding: 20px;
-    background: var(--grey); 
-    border: 2px solid var(--black);
-    border-radius: 20px;
-    text-align: center;
-    z-index: 1;
-    opacity: 70%;
-}
-.videoImg {
-    margin: 10px 50px;
-    height: 550px;
-    width: 90%;
-    position: relative;
-    display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background: var(--darkBackground);
 }
-.videoImg #exitSynopsis {
-    position: absolute;
-    z-index: 1;
-    left: -50px;
-    top: -20px;
-    font-size: 35px;
-    color: var(--secondaryColor);
-    transition: all .5s linear;
-}
-.videoImg #exitSynopsis:hover {
-    font-size: 33px;
-    color: var(--white);
-    padding: 5px;
-    background: var(--background);
-}
-.videoImg img {
-    height: 100%;
-    width: 550px;
-    border-radius: 20px;
-}
-.videoImg button {
-    position: absolute;
-    background: var(--background);
-    z-index: 1;
-    bottom: 2%;
-    /* left: 27%; */
-    height: 25px;
-    width: 45%;
+.video-img {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 50vh;
+    position: relative;
     border-radius: 10px;
-    font-size: 16px;
-    transition: all .5s ease-in-out;
-    cursor: pointer;
+    overflow: hidden;
+    opacity: 50%;
 }
-.videoImg button:hover {
-    background: var(--green);
-    color: var(--secondaryColor);
-    font-size: 15px;
+.video-img #exit-synopsis {
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    z-index: 2;
+    background-color: var(--darkBackground);
+    padding: 10px;
+    font-size: 20px;
 }
-.videoImg button i {
-    font-size: 16px;
+.video-img #exit-synopsis:hover {
+    color: var(--white);
 }
-.videoImg button:hover i {
-    color:  var(--secondaryColor);
-    font-size: 15px;
+.video-img img {
+    width: 100%;
+    height: 90%;
+}
+.video-img button {
+    width: 100%;
+    height: 10%;
+    background-color: var(--greenAccent);
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+}
+.video-img button:hover {
+    color: var(--white);
 }
 .synop-cato {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    width: 90%;
-    margin-left: 50px;
+    gap: 10px;
 }
-.synop-cato .synopCatoBtn {
-    height: 80%;
-    width: 90px;
-    margin: 5px;
+.synop-cato button {
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid var(--black);
+    outline: 0;
     background: transparent;
-    border: 1px solid var(--white);
-    color:  var(--secondaryColor);
-    font-size: 15px;
-    font-weight: 400;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all .5s ease-in-out;
-}
-.synop-cato .synopCatoBtn:hover {
-    background: var(--greenAccent);
     color: var(--secondaryColor);
 }
-.synopsis {
-    height: 170px;
-    width: 90%;
-    /* border: 1px solid #fff; */
-    margin: 10px 50px;
-    padding: 10px;
+.synop-cato button:hover {
+    background-color: var(--greenAccent);
+    border: 0;
 }
-.synopsis p {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--secondaryColor);
+.synop-cato button:nth-last-child(1):hover {
+    color: var(--red);
 }
-.synopsis p span {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--secondaryColor);
-}
-.synopsisContainer .cast-heading {
-    color: var(--secondaryColor);
-}
-.castList {
-    display: flex;
-    flex-direction: column;
-    height: 150px;
-    width: auto;
-    /* border: 1px solid #fff; */
-}
-.castList .cast {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 110px;
-    width: auto;
-    /* border: 1px solid #fff; */
-}
-.castList .cast .img-name {
-    display: flex;
-    flex-direction: column;
-    margin: 2px 20px;
-}
-.castList .cast .img-name img {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    margin: 2px 20px;
-    background: var(--secondaryColor);
-}
-.castList .cast .img-name p {
-    color: var(--secondaryColor);
-    font-size: 13px;
-    font-weight: 300;
-}
-
-/* SEASON SYNOPSIS PAGE --------------------------------------------------------- */
-.seasonSynops {
-    height: 230vh;
-    width: 70vw;
-    position: relative;
-    margin: 5% 15%;
-}
-.seasonSynops .seasonSynop {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    height: 230vh;
-    width: 70vw;
-    padding: 20px;
-    background: var(--primaryColor);
-    opacity: 70%; 
-    border: 2px solid var(--black);
-    border-radius: 20px;
-    text-align: center;
-    z-index: 1;
-}
-.seasonSynops .seasonBgVid {
-    position: absolute;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background: var(--primaryColor); 
-    /* background: #fff; */
-    border: 2px solid var(--black);
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
-    z-index: 0;
-}
-.seasonSynops .seasonBgVid .seasonBgVidV {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;   
-}
-.seasonSynop .videoImg button {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    color: var(--secondaryColor);
-    background: var(--darkBackground);
-}
-.episodes {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+.synopsis-content {
     height: auto;
     width: 100%;
-    padding: 10px;
-}
-.episodes .episode {
-    display: flex;
-    align-items: start;
-    height: 60px;
-    width: 100%;
-    padding: 5px 10px;
-}
-.episodes .episode button {
-    display: flex;
-    align-items: start;
-    width: 100%;
-    height: 100%;
-    padding: 5px 10px;
-    background: var(--grey);
-    color: var(--secondaryColor);
-    border-radius: 10px;
-}
-.episodes .episode button i {
-    font-size: 25px;
-    background: var(--dark-grey);
-    border-radius: 50%;
-    padding: 7px 10px;
-    cursor: pointer;
-}
-.episodes .episode button span h4 {
-    font-size: 16px;
-    font-weight: 600;
-}
-.episodes .episode button span p {
-    font-size: 13px;
-    font-weight: 300;
-}
-
-
-/* footer page  */
-footer {
+    margin: 10px 0;
     display: flex;
     flex-direction: column;
-    margin: 10px 20px;
-    padding: 0 20px;
-    border-top: 2px solid var(--darkBackground);
-    background: var(--background);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
-.footer-con {
+.synopsis-content p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.synopsis-content p span {
+    display: block;
+    font-size: 30px;
+}
+.synopsis-content .synop-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 10px;
-}
-.footer-con .footer-logo img {
-    width: 12em;
-    height: 8em;
-    border-radius: 10px;
-    box-shadow: 2px 2px 3px 3px var(--darkBackground);
-}
-.footer-con .footer-nav ul li {
-    margin-bottom: 10px;
-}
-.footer-con .footer-nav ul li a {
-    font-size: 16px;
-    text-decoration: underline;
-    color: var(--primaryColor);
-}
-.footer-con .footer-nav ul li:hover a {
-    font-size: 17px;
-    color: var(--grey);
-    transition: all .5s ease-in-out;
-}
-.footer-con .socials i {
-    font-size: 20px;
-    color: var(--black);
-    margin: 0 5px;
-}
-.footer-con .socials i:hover {
-    font-size: 22px;
-    color: var(--primaryColor);
+    justify-content: center;
+    /* width: 100%; */
     padding: 10px;
-    background: var(--greenAccent);
-    border-radius: 50%;
-    transition: all .5s ease-in-out;
+    align-self: center;
 }
-.right-reserved{
+.cast-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.cast-list .cast {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.cast-list .cast .img-name {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 140px;
+    /* border: 1px solid; */
+    border-radius: 10px;
+    overflow: hidden;
+}
+.cast-list .cast .img-name::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--black), transparent);
+}
+.cast-list .cast .img-name img {
+    width: 100%;
+    height: 90%;
+}
+.cast-list .cast .img-name p {
+    font-size: 14px;
+    position: absolute;
+    padding: 1px;
+    z-index: 1;
+    bottom: 1%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+/* Series Synop page ===========================================================  */
+/* Series Synop page ===========================================================  */
+
+
+
+/* Preferences page ===========================================================  */
+/* Preferences page ===========================================================  */
+
+
+/* footer -------------------------------------------------------- */
+/* footer -------------------------------------------------------- */
+footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-top: 2px solid var(--secondaryColor);
+}
+footer .footer-con {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    place-content: center;
+}
+footer .footer-con .footer-logo {
+    width: 200px;
+    height: 100px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+footer .footer-con .footer-logo img {
+    width: 100%;
+    height: 100%;
+}
+footer .footer-con .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer .footer-con .footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+footer .footer-con .footer-nav ul li a {
+    font-size: 18px;
+    color: var(--secondaryColor);
+}
+footer .footer-con .footer-nav ul li a:hover {
+    text-decoration: underline;
+}
+footer .footer-con .socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+footer .footer-con .socials a i {
+    font-size: 18px;
+    color: var(--secondaryColor);
+    transition: all .5s ease-in-out;
+}
+footer .footer-con .socials a i:hover {
+    transform: scale(80%);
+}
+footer .right-reserved {
     text-align: center;
 }
-.right-reserved h1{
-    font-size: 20px;
-    font-weight: 500;
-}
-.right-reserved p{
-    font-size: 14px;
-    font-weight: 300;
-    font-style: oblique;
+footer .right-reserved p{
+    font-size: 13px;
 }
 
 
-/* MEDIA query --------------------------------------------------------- */
-/* MEDIA query --------------------------------------------------------- */
-@media screen and (max-width: 1280px)  {
-    header {
-        height: 70px;
+/* Media queries ----------------------------------------------- */
+/* Media queries ----------------------------------------------- */
+@media screen and (max-width: 1500px) {
+    .film-page {
+        grid-template-columns: repeat(6, 1fr);
     }
-    header .navContainer {
-        padding: 2px;
+}
+
+/* Media queries ----------------------------------------------- */
+/* Media queries ----------------------------------------------- */
+@media screen and (max-width: 1300px) {
+    .film-page {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+/* Media queries ----------------------------------------------- */
+/* Media queries ----------------------------------------------- */
+@media screen and (max-width: 1100px) {
+    header {
+        width: 100%;
+        height: 80px;
     }
     .navContainer .logo {
-        width: 100px;
-        height: 50px;
-    }
-    .navContainer .logo img {
-        width: 100%;
-        height: 100%;
-        border-radius: 15px;
+        width: 9em;
+        height: 3.5em;
     }
     .navContainer .searchBar {
-        align-items: center;
-        justify-content: center;
-        width: 150px;
-        height: 25px;
-        background: var(--background);
-        border-radius: 25px;
-        box-shadow: var(--box-shadow);
-    }
-    .navContainer .searchBar input{
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-        border-radius: 25px;
-    }
-    .navContainer .searchBar i{
-        position: absolute;
-        font-size: 16px;
-        padding: 0;
-    }
-    .navContainer .searchBar i:hover {
-        padding: 5px;
-    }
-    .navContainer .navigation {
-        gap: 12px;
-        align-content: space-between;
+        width: 300px;
+        height: 40px;
     }
     .navigation i {
         font-size: 20px;
-        padding: 5px;
+        padding: 8px;
     }
-    .navigation i:hover {
-        font-size: 21px;
-    }
-    .navigation .filmControl {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .navigation .filmControl p {
-        font-size: 12px;
-        padding: 11px 5px;
-        bottom: 0;
-        right: 0;
-    }
-    .seasonControl {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .navigation .seasonControl p {
-        font-size: 11px;
-        padding: 13px 7px;
-        top: 10%;
-        right: -10%;
-    }
-    .catalogueControl {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .navigation .catalogueControl p {
-        font-size: 8px;
-        padding: 15px 3px;
-        top: 0;
-        right: 0;
-    }
-
+    
     .profiles {
-        height: 40px;
-        width: 80px;
+        height: 45px;
     }
     .profiles .profIcons img {
-        width: 30px;
-        height: 30px;
-        margin: 0 2px;
+        width: 35px;
+        height: 35px;
     }
     .profiles i {
         font-size: 25px;
-        padding: 5px;
-        margin: 0 2px;
-        
-    }
-    .profiles .profLists {
-        flex-direction: column;
-        width: 300px;
-        height: auto;
-        background: var(--dark-grey);
-        border: 1px solid var(--secondaryColor);
-        border-radius: 2px;
-    }
+    } 
     
-    .profLists h3 {
-        padding: 10px;
-        font-size: 25px;
-    }
-    .profLists .accountLogin {
-        padding: 10px;
-        font-size: 25px;
-        font-weight: 500;
-    }
-
-    /* home page ---------------------------------------------- */
-    /* home page ---------------------------------------------- */
-    .home {
-        height: 100vh;
-    }
-    .home .homeContainer {
-        height: 60Vh;    
-    }
-    .home1 .bgImg {
-        width: 100%;
-        height: 100%;
-    }
-    .home1 .bgImg p {      
-        width: 40%;
-        left: 0;
-        top: 1%;
-        font-size: 16px;
-    }
-    .home1 .bgImg p span {
-        font-size: 30px;
-        font-weight: 600;
-    }
-    .home1 .bgImg .playBtn {
-        border-radius: 10px;
-        bottom: 50%;
-        left: 60%;
-        margin: 10px;
-    }
-
-        /* VIDEO PLAYER SECTION ------------------------------- */
+    
+    /* VIDEO PLAYER SECTION ------------------------------- */
     .myVideo{
-        width: 100vw;
-        height: 80vh;
-        top: 100px;
-        left: 0;
-    }
-
-    /* film page ---------------------------------------------------- */
-    .films {
-        margin: 20px 0;
-        margin-right: 20px;
-    }
-    .film {
-        padding: 0;
-    }
-    .film1 .card {
-        max-width: 135px;
-        max-height: 180px;
-        margin: 2px 14px;
-    }
-    .film1 .card .title {
-        font-size: 10px;
-    }
-    .film1 .card .year-rating{
-        font-size: 10px;
-        margin-right: 3px;   
-    }
-    .film1 .card .year-rating i {
-        font-size: 10px;
-    }
-
-    /* series page-----------------------------------------------------------  */
-    .seasons {
-        margin: 20px 0;
-        margin-right: 20px;
-    }
-    .season {
-        padding: 0;
+        top: 85px;
+        left: 150px;
     }
     
-    .season1 .card {
-        max-width: 135px;
-        max-height: 180px;
-        margin: 2px 14px;
-    }
     
-    .season1 .card .title{
-        font-size: 10px;
+    /* Home page ===========================================================  */
+    /* Home page ===========================================================  */
+    .home-con {
+        overflow: hidden;
     }
-    .season1 .card .year-rating{
-        font-size: 10px;
-        margin-right: 3px;
-    }
-    .season1 .card .year-rating i{
-        font-size: 11px;
-    }
-
-
-    /* FILM SYNOPSIS PAGE --------------------------------------------- */
-    .filmSynop {
-        min-height: 200vh;
-        height: auto;
-        width: 100vw;
-        margin: 0;
-    }
-    .filmSynop .filmBgVid {
-        border-radius: 0;
-    }
-    .filmBgVid .filmBgVidV {
-        border-radius: 0;
-    }
-    .filmSynop .synopsisContainer {
-        border-radius: 0;
-    }
-    .videoImg button {
-        left: 17%;
-        height: 35px;
-        width: 65%;
-        font-size: 19px;
-    }
-    .videoImg button:hover {
-        font-size: 20px;
-    }
-    .videoImg button i {
-        font-size: 19px;
-    }
-    .videoImg button:hover i {
-        font-size: 20px;
-    }
-    .synopsis {
-        height: auto;
-        width: 95%;
-        margin: 10px;
-    }
-    .synopsis p {
-        font-size: 16px;
-        font-weight: 300;
-        color: var(--secondaryColor);
-    }
-    .synopsis p span {
+    .home-container .home-billboard .home-page .synop-title-etc .title {
+        color: var(--redAccent);
         font-size: 35px;
     }
-    .castList {
-        align-items: center;
-        justify-content: center;
-        height: 220px;
+    .home-billboard .home-page .synop-title-etc .duration-playfilm {
+        font-size: 16px;
     }
-    .castList h2 {
-        font-size: 30px;
-    }
-    .castList .cast {
-        height: 130px;
+    .home-billboard .home-page .synop-title-etc .duration-playfilm i {
+        font-size: 14px;
     }
     
-    .castList .cast .img-name p {
+    .home-container .categories .category-btn {
+        height: 45px;
+    }
+    .home-container .categories .category-btn:hover {
+        opacity: 80%;
+    } 
+    
+    
+    /* Films page ===========================================================  */
+    /* Films page ===========================================================  */
+    .film-page {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    
+    /* film synopsis page ===========================================================  */
+    /* film synopsis page ===========================================================  */
+    .cast-list .cast .img-name {
+        width: 80px;
+        height: 110px;
+    }
+    .cast-list .cast .img-name img {
+        height: 70%;
+    }
+    .cast-list .cast .img-name p {
+        font-size: 12px;
+    }
+ 
+    
+    /* footer -------------------------------------------------------- */
+    /* footer -------------------------------------------------------- */
+    footer .footer-con .footer-logo {
+        width: 180px;
+        height: 80px;
+    }
+    footer .footer-con .footer-nav ul li a {
+        font-size: 16px;
+    }
+    footer .footer-con .socials a i {
+        font-size: 16px;
+        color: var(--secondaryColor);
+        transition: all .5s ease-in-out;
+    }
+    footer .right-reserved p{
+        font-size: 13px;
+    } 
+}
+
+
+
+/* Media queries ----------------------------------------------- */
+/* Media queries ----------------------------------------------- */
+@media screen and (max-width: 915px) {
+    .navContainer .logo {
+        width: 7em;
+        height: 3em;
+    }
+    .navContainer .searchBar {
+        width:250px;
+        height: 35px;
+    }
+    
+    .navContainer .searchBar i{
+        font-size: 16px;
+    }
+    .navigation i {
+        font-size: 18px;
+        padding: 5px;
+    }
+    
+    .profiles {
+        height: 40px;
+        width: 70px;
+    }
+    
+    .profiles .profIcons img {
+        width: 30px;
+        height: 30px;
+    }
+    .profiles i {
+        font-size: 20px;
+    }    
+    .profLists h3 {
         font-size: 18px;
     }
-
-    /* SEASON SYNOPSIS PAGE --------------------------------------------------------- */
-    .seasonSynops {
-        height: 300vh;
-        width: 100vw;
-        margin: 0;
-    }
-    .seasonSynops .seasonSynop {
-        height: 100%;
-        width: 100%;
-        padding: 20px;
-        border-radius: 0;
-    }
-    .seasonSynops .seasonBgVid .seasonBgVidV {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0;   
-    }
-
-    /* footer page  */
-    footer {
-        display: flex;
-        flex-direction: column;
-        margin: 10px 20px;
-        padding: 0 20px;
-        border-top: 2px solid var(--darkBackground);
-        background: var(--background);
-        /* border-radius: 20px 20px 0 0; */
-    }
-    .footer-con {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 10px;
-    }
-    .footer-con .footer-logo img {
-        width: 12em;
-        height: 8em;
-        border-radius: 10px;
-        box-shadow: 2px 2px 3px 3px var(--darkBackground);
-    }
-    .footer-con .footer-nav ul li {
-        margin-bottom: 10px;
-    }
-    .footer-con .footer-nav ul li a {
+    .profLists .accountLogin {
         font-size: 16px;
-        text-decoration: underline;
-        color: var(--primaryColor);
     }
-    .footer-con .footer-nav ul li:hover a {
+    .login {
+        width: 30em;
+        height: 32em;
+    }
+    .closeLogReg i {
+        font-size: 16px;
+    }
+    .login .formHeading {
+        font-size: 35px;
+    }
+    .register {
+        width: 30em;
+        height: 38em;
+    }
+    .register .formHeading {
+        font-size: 35px;
+    }
+    .loginInput h2 {
+        font-size: 16px;
+    }
+    .loginInput .passwordDiv {
+        position: relative;
+    }
+    .loginInput button {
+        font-size: 18px;
+    }
+    .alternativeLog i {
+        font-size: 20px;
+    }
+    .formImprovise p {
         font-size: 17px;
-        color: var(--grey);
-        transition: all .5s ease-in-out;
     }
-    .footer-con .socials i {
-        font-size: 20px;
-        color: var(--black);
-        margin: 0 5px;
+    
+    
+    /* VIDEO PLAYER SECTION ------------------------------- */
+    .myVideo{
+        width: 80vw;
+        height: 70vh;
+        top: 100px;
+        left: 80px;
     }
-    .footer-con .socials i:hover {
-        font-size: 22px;
-        color: var(--primaryColor);
-        padding: 10px;
-        background: var(--greenAccent);
-        border-radius: 50%;
-        transition: all .5s ease-in-out;
+    
+    
+    /* Home page ===========================================================  */
+    /* Home page ===========================================================  */
+    .home-container .home-billboard {
+        height: 70vh;
     }
-    .right-reserved{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
+    
+    .home-container .categories {
+        padding: 15px 5px;
     }
-    .right-reserved h1{
-        font-size: 20px;
-        font-weight: 500;
+    .home-container .categories .category-btn:hover {
+        opacity: 80%;
     }
-    .right-reserved p{
-        font-size: 14px;
-        font-weight: 300;
-        font-style: oblique;
+    
+    
+    /* Films page ===========================================================  */
+    /* Films page ===========================================================  */
+    .film-page {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .card {
+        width: 170px;
+        min-width: 170px;
+        height: 210px;
+        min-height: 210px;
+    }
+    .card .content .title {
+        font-size: 16px;
+    }
+    .card .content .year-rating {
+        font-size: 12px;
     }
 }
 
-/* MINIMUN SCREEN SIZE ----------------------------------- */
-@media screen and (max-width: 540px) {
+
+/* Media queries ----------------------------------------------- */
+/* Media queries ----------------------------------------------- */
+@media screen and (max-width: 710px) {
     header {
-        height: 80px;
+        height: auto;
+        min-height: 15vh;
+        position: relative;
     }
     header .navContainer {
-        position: relative;
-        flex-direction: column
+        flex-direction: column;
+        justify-content: center;
     }
     .navContainer .logo {
         position: absolute;
-        left: 0;
-        width: 80px;
-        height: 40px;
+        left: 2%;
+        top: 2%;
+        width: 8em;
+        height: 3em;
     }
     .navContainer .search-bar-icon i {
-        position: absolute;
-        bottom: 20%;
-        left: 45%;
         font-size: 20px;
         padding: 0;
         color: var(--white);
         border-radius: 50%;
-        display: unset;
+        display: none;
+        position: absolute;
+        bottom: 5%;
     }
     .navContainer .searchBar {
         position: absolute;
-        top: 47px;
-        width: 200px;
-        height: 25px;
-        display: none;
+        bottom: 2%;
     }
-    .navContainer .searchBar input{
-        font-size: 16px;
-    }
-    .navContainer .searchBar i{
-        position: absolute;
-        font-size: 16px;
-        padding: 0;
-        right: 2%;
-    }
-    .navContainer .searchBar i:hover {
-        padding: 5px;
+    .navContainer .searchBar input:hover{
+        background: var(--black);
     }
     .navContainer .navigation {
         display: none;
         position: absolute;
-        top: 70px;
-        right: 0;
-        height: auto;
-        flex-direction: column;
-        gap: 12px;
-        align-content: space-between;
-    }
-    .navigation i {
-        font-size: 20px;
-        padding: 5px;
-    }
-    .navigation i:hover {
-        font-size: 21px;
-    }
-    .navigation .filmControl {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .navigation .filmControl p {
-        font-size: 12px;
-        padding: 11px 5px;
-        bottom: 0;
-        right: 0;
-    }
-    .seasonControl {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .navigation .seasonControl p {
-        font-size: 11px;
-        padding: 13px 7px;
-        top: 10%;
-        right: -10%;
-    }
-    .catalogueControl {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .navigation .catalogueControl p {
-        font-size: 8px;
-        padding: 15px 3px;
+        left: 2%;
         top: 0;
-        right: 0;
+        padding: 0;
     }
-
     .toggle-color {
         position: absolute;
-        top: 0;
-        width: 40px;
-        height: 20px;
-        background-color: var(--white);
-        border-radius: 20px;
-        padding: 1px;
+        right: 33%;
+        top: 10%;
     }
     
     .profiles {
         position: absolute;
-        right: 0;
-        height: 40px;
-        width: 80px;
-    }
-    
-    .profiles .profIcons img {
-        width: 30px;
-        height: 30px;
-        margin: 0 3px;
-    }
-    .profiles i {
-        font-size: 20px;
-        margin: 0;
-        margin-left: 3px;
-
+        right: 2%;
+        top: 2%;
     }
     .profiles .profLists {
-        right: 0;
-        top: 75px;
-        width: 100px;
-        height: auto;
+        right: 5px;
+        top: 15vh;
+        width: 150px;
     }
         
     .profLists h3 {
-        font-size: 16px;
+        font-size: 14px;
     }
     .profLists .accountLogin {
-        padding: 10px;
-        font-size: 16px;
+        font-size: 15px;
     }
     .profLists .nav-btns {
         display: flex;
-        flex-direction: column;
+        font-size: 14px;
     }
-    .logRegForm {
-        top: 50px;
-        gap: 10px;
-    }
-    .login {
-        gap: 3px;
-        width: 90%;
-        height: 70%;
+    .profLists .nav-btns .filmControl,
+    .profLists .nav-btns .seasonControl,
+    .profLists .nav-btns .catalogueControl  {
         padding: 5px;
     }
-    .closeLogReg {
-        border-radius: 50%;
+    .login {
+        gap: 5px;
+        width: 260px;
+        height: 60vh;
+        padding: 10px;
     }
     .closeLogReg i {
-        font-size: 16px;
-        padding: 3px 5px;
+        font-size: 14px;
     }
     .login .formHeading {
         font-size: 25px;
     }
     .register {
-        gap: 3px;
-        width: 90%;
-        height: 70%;
-        padding: 5px;
+        gap: 5px;
+        width: 260px;
+        height: 70vh;
+        padding: 10px;
     }
     .register .formHeading {
         font-size: 25px;
     }
     .loginInput {
-        gap: 3px;
-        padding: 5px;
+        gap: 5px;
+        padding: 11px;
     }
     .loginInput h2 {
-        font-size: 16px;
+        font-size: 13px;
     }
-    .usernameDiv i {
-        position: absolute;
-        right: 13%;
-        top: 30%;
-    }
-    .passwordDiv i {
-        position: absolute;
-        right: 13%;
-        top: 30%;
+    .passwordDiv i, .usernameDiv i {
+       font-size: 14px;
     }
     .loginInput input {
-        width: 95%;
+        width: 98%;
         height: 35px;
         padding: 5px;
-        font-size: 16px;
+        font-size: 14px;
+    }   
+    .loginInput input::placeholder {
+        font-size: 12px;
     }
     .loginInput button {
-        width: 95%;
-        height: 30px;
+        font-size: 16px;
     }
     .alternativeLog {
-        height: auto;
-        width: 100%;
-        padding: 2px;
-        gap: 3px;
+        padding: 5px;
+        gap: 6px;
     }
-    .alternativeLog .altDiv {
-        flex-direction: column;
-        padding: 3px;
-        align-items: center;
-        justify-content: center;
+    .alternativeLog i {
+        margin: 0 ;
     }
-    .alternativeLog .altDiv i {
-        font-size: 20px;
-        padding: 3px;
-        margin: 0;
-    }
-    .alternativeLog .altDiv p {
-        color: var(--primaryColor);
-        font-size: 16px;
-        padding: 0;
+    .alternativeLog p {
+        font-size: 15px;
     }
     .formImprovise {
-        padding: 10px;
+        padding: 5px;
     }
     .formImprovise p {
-        font-size: 16px;
-        margin: 0;
+        font-size: 15px;
+    }
+    .formImprovise p .improvReg {
+        text-decoration: underline;
     }
     
     .searchMenu {
-        /* background: var(--darkBackground); */
         background: var(--black);
         width: 100%;
-        top: 80px;
+        top: 15vh;
         left: 0;
     }
     
-    /* home page ---------------------------------------------- */
-    /* home page ---------------------------------------------- */
     
-    .homeCon {
-        overflow: hidden;
-    }
-    .home {
-        height: auto;    
-    }
-    .home .categories {
-        border-radius: 0;
-        padding: 10px 2px;
-    }
-    .categories .categoryBtn {
-        width: 110px;
-        min-width: 110px;
-        height: 25px;
-        padding: 0;
-        font-size: 15px;
-    }
-    .home .homeContainer {
-        height: 50Vh;
-        border-radius: 0;
-    }
-    .homeContainer .home1 {
-        border-radius: 0;
-    }
-    .homeContainer .home1::before {
-        background: none;
-    }
-    .homeContainer .home1::after {
-        background: linear-gradient(180deg, 
-            #faf9f902, #faf9f902, 
-            var(--darkBackground),
-            var(--primaryColor),
-            var(--primaryColor)
-        );
-    }
-    .home1 .bgImg {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        border-radius: 0;
-    }
-    .home1 .bgImg img {
-        border-radius: 0;
-    }
-    .home1 .bgImg p {
-        padding: 0 10px;
-        height: 50%;
-        width: 100%;
-        left: 0;
-        top: 55%;
-        font-size: 10px;
-        font-weight: 300;
-    }
-    .home1 .bgImg p span {
-        font-size: 20px;
-    }
-    .home1 .bgImg .playBtn {
-        font-size: 13px;
-        padding: 5px 10px;
-        left: 0;
-        bottom: 50%;
-    }
-    
-    .home .showCato {
-        height: 150px;
-        padding: 3px;
-    }
-    .action-bx .card, 
-    .crime-bx .card,
-    .documentary-bx .card,
-    .drama-bx .card,
-    .biography-bx .card,
-    .scifi-bx .card,
-    .fantasy-bx .card,
-    .adventure-bx .card,
-    .horror-bx .card,
-    .nsfw-bx .card,
-    .animation-bx .card,
-    .western-bx .card,
-    .romance-bx .card {
-        width: 100px;
-        min-width: 100px;
-        min-height: 130px;
-        height: 130px;
-        border-radius: 10px;
-        margin: 4px;
-    }
-    .card img{
-        width: 100%;
-        height: 78%;
-        border-radius: 10px 10px 0 0;
-    }
-    .card .title{
-        font-size: 6px;
-    }
-    .card .year-rating{
-        font-size: 5px;
-    }
-    .card .year-rating i {
-        font-size: 5px;
-        margin-right: 3px;
-    }
-    
-    .paginations {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 50px;
-        background: var(--dark-grey);
-    }
-    .paginations #paginationBtn {
-        width: 5px;
-        height: 5px;
-        padding: 2px;
-    }
-    .paginations #paginationBtn:hover {
-        padding: 3px;
-    }
-
-    
-    
-        /* VIDEO PLAYER SECTION ------------------------------- */
+    /* VIDEO PLAYER SECTION ------------------------------- */
     .myVideo{
         width: 100vw;
         height: 80vh;
-        top: 80px;
+        top: 15vh;
         left: 0;
-        border-radius: 10px;
+        border-radius: 5px;
     }
     .myVideo video{
-        border-radius: 10px;
+        border-radius: 5px;
     }
     .myVideo i{
-        font-size: 18px;   
+        font-size: 14px;
     }
     
-    
-    /* film page ---------------------------------------------------- */
-    .films {
-        overflow: hidden;
-        border-radius: 10px;
-        margin: 0;
-        margin-right: 5px;
-        height: auto;
-    }
-    .film {
-        width: 400vw;
-        height: 90vh;
-        padding: 5px;
-    }
-    .film .film1 {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
-    }
-    .film1 .card {
-        width: 80px;
-        min-width: 80px;
-        height: 120px;
-        min-height: 120px;
-        border-radius: 5px;
-        margin-right: 10px;
-        overflow: hidden;
-    }
-    .film1 .card img{
-        height: 68%;
-        border-radius: 5px 5px 0 0;
-    }
-    .film1 .card .title{
-        font-size: 7px;
-        font-weight: 600;
-        text-overflow: ellipsis;
-        /* white-space: nowrap; */
-        height: 20%;
-        width: 100%;
-        margin-left: 3px;
-    }
-    .film1 .card .year-rating{
-        height: 10%;
-        font-size: 7px;
-    }
-    .film1 .card .year-rating i {
-        font-size: 7px;
-        margin-right: 3px;
-    }
-    
-    .film-paginations {
-        left: 35%;
-    }
-    .film-paginations #film-paginationBtn {
-        width: 20px;
-        height: 20px;
-        padding: 0;
-        font-size: 11px;
-    }
-    .film-paginations #film-paginationBtn:hover {
-        font-size: 11px;
-        padding: 0;
-    }
-    .film-paginations #film-paginationBtn i {
-        font-size: 11px;
-    }
-    
-    /* series page-----------------------------------------------------------  */
-    .seasons {
-        overflow: hidden;
-        border-radius: 10px;
-        margin: 0;
-        margin-right: 5px;
-        height: auto;
-    }
-    .season {
-        width: 400vw;
-        height: 90vh;
-        padding: 5px;
-    }
-    .season .season1 {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
-    }
-    .season1 .card {
-        width: 80px;
-        min-width: 80px;
-        height: 120px;
-        min-height: 120px;
-        border-radius: 5px;
-        margin-right: 10px;
-        overflow: hidden;
-    }
-    .season1 .card img{
-        height: 68%;
-        border-radius: 5px 5px 0 0;
-    }
-    .season1 .card .title{
-        font-size: 7px;
-        font-weight: 600;
-        text-overflow: ellipsis;
-        /* white-space: nowrap; */
-        height: 20%;
-        width: 100%;
-        margin-left: 3px;
-    }
-    .season1 .card .year-rating{
-        height: 10%;
-        font-size: 7px;
-    }
-    .season1 .card .year-rating i {
-        font-size: 7px;
-        margin-right: 3px;
-    }
-    
-    .season-paginations {
-        left: 35%;
-    }
-    .season-paginations #season-paginationBtn {
-        width: 20px;
-        height: 20px;
-        padding: 0;
-        font-size: 11px;
-    }
-    .season-paginations #season-paginationBtn:hover {
-        font-size: 11px;
-        padding: 0;
-    }
-    .season-paginations #season-paginationBtn i {
-        font-size: 11px;
-    }
-    
-    /* CATALOGUE PAGE ------------------------------------------------ */
-    .cataContainer {
-        width: 200px;
-        height: 100px;
-        border: var(--black) 1px solid;
-    }
-    .cataBtn {
-        width: 80px;
-        height: 30px;
-        margin-bottom: 10px;
-    }
-    
-    
-    /* FILM SYNOPSIS PAGE --------------------------------------------- */
-    .filmSynop {
-        height: 150vh;
-        width: 100vw;
-        margin: 0;
-        overflow: hidden;
-    }
-    .filmSynop .filmBgVid {
-        position: absolute;
-        border: 0;
-        border-radius: 0;
-    }
-    .filmBgVid .filmBgVidV {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0;
-    }
-    .filmSynop .synopsisContainer {
-        padding: 0;
-        border: none;
-        border-radius: 0;
-    }
-    .videoImg {
-        margin: 0;
+
+    /* Home page ===========================================================  */
+    /* Home page ===========================================================  */
+    .home-container .home-billboard {
         height: 50vh;
-        width: 100%;
-    }
-    .videoImg #exitSynopsis {
-        left: 1%;
-        top: 0;
-        font-size: 25px;
-    }
-    .videoImg #exitSynopsis:hover {
-        font-size: 23px;
-        padding: 5px;
-    }
-    .videoImg img {
-        width: 100%;
-        border-radius: 20px;
-    }
-    .synop-cato {
-        height: 50px;
-        width: 90%;
-        margin-left: 13px;
-    }
-    .synop-cato .synopCatoBtn {
-        font-size: 12px;
-    }
-     .synopsis {
-        height: auto;
-        width: 100%;
-        margin: 0;
-        padding: 10px;
-    }
-     .synopsis p {
-        font-size: 11px;
-    }
-    .synopsis p span {
-        font-size: 19px;
-    }
-    .cast-heading {
-        color: var(--secondaryColor);
-    }
-    .castList {
-        width: auto;
-        overflow: auto;
-        height: auto;
-    }
-    .castList .cast {
-        overflow-x: scroll;
-        transform: translateX(17%);
-    }
-    .castList .cast .img-name {
-        margin: 2px;
-    }
-    .castList .cast .img-name img {
-        margin: 5px;
-    }
-    
-    /* SEASON SYNOPSIS PAGE --------------------------------------------------------- */
-    .seasonSynops {
-        min-height: 250vh;
-        height: auto;
-        width: 100vw;
-        margin: 0;
-        overflow: hidden;
-    }
-    .seasonSynops .seasonSynop {
-        height: 100%;
-        width: 100%;
-        padding: 0px;
         border-radius: 0;
     }
-    .seasonSynops .seasonBgVid {
+    .home-container .home-billboard .home-page::before {
         position: absolute;
-        border: 0;
-        border-radius: 0;
-    }
-    .seasonSynops .seasonBgVid .seasonBgVidV {
+        z-index: 1;
+        content: '';
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        border-radius: 0;
+        background: linear-gradient(to right, 
+            #000, #000, 
+            transparent
+        );
     }
-    .episodes {
+    .home-container .home-billboard .home-page .synop-title-etc {
+        width: 60%;
+        gap: 5px;
         padding: 5px;
     }
-    .episodes .episode {
-        height: 60px;
-        width: 100%;
-        padding: 3px 5px;
-    }
-    .episodes .episode button {
-        padding: 3px 5px;
-    }
-    .episodes .episode button i {
+    .home-container .home-billboard .home-page .synop-title-etc .title {
         font-size: 20px;
     }
-    .episodes .episode button span h4 {
-        font-size: 16px;
+    .home-container .home-billboard .home-page .synop-title-etc .year {
+        font-size: 13px;
         font-weight: 600;
     }
-    .episodes .episode button span p {
+    .home-container .home-billboard .home-page .synop-title-etc .description {
+        font-size: 11px;
+    }
+    .home-billboard .home-page .synop-title-etc .duration-playfilm {
+        font-size: 14px;
+    }
+    .home-billboard .home-page .synop-title-etc .duration-playfilm i {
+        font-size: 12px;
+    }
+    
+    .home-container .categories {
+        padding: 10px 5px;
+    }
+    .home-container .categories .category-btn {
+        min-width: 100px;
+        height: 30px;
+        border-radius: 25px;
         font-size: 13px;
-        font-weight: 300;
+    }
+    .home-container .show-cato {
+        height: 200px;
+        width: 100%;
     }
     
     
-    /* footer page  */
-    footer {
-        margin: 0;
-        margin-top: 5px;
-        padding: 2px;
+    /* Films page ===========================================================  */
+    /* Films page ===========================================================  */
+    .films-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
     }
-    .footer-con {
-        margin: 0;
+    .films-container h1 {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        font-size: 200px;
+        color: var(--grey);
     }
-    .footer-con .footer-logo img {
+    .film-page {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .card {
+        width: 110px;
+        min-width: 110px;
+        height: 160px;
+        min-height: 160px;
+    }
+    .card .content .title {
+        font-size: 10px;
+    }
+    .card .content .year-rating {
+        font-size: 11px;
+    }
+    
+    
+    /* film synopsis page ===========================================================  */
+    /* film synopsis page ===========================================================  */
+    .film-synop-all {
+        gap: 5px;
+        overflow-x: hidden;
+    }
+    .video-img {
+        width: 90vw;
+        height: 40vh;
+    }
+    .video-img #exit-synopsis {
+        padding: 5px;
+        font-size: 17px;
+    }
+    .video-img button {
+        font-size: 15px;
+    }
+    .synop-cato {
+        gap: 5px;
+    }
+    .synop-cato button {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+    .synopsis-content {
+        height: auto;
+        width: 100%;
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .synopsis-content p span {
+        display: block;
+        font-size: 20px;
+    }
+    .synopsis-content .synop-content {
+        padding: 10px;
+        font-size: 13px;
+    }
+    .cast-list { 
+        overflow-x: auto;
+        width: 100%;
+        position: relative;
+        min-height: 180px;
+        height: auto;
+    }
+    .cast-list h2 {
+        font-size: 20px;
+    }
+    .cast-list .cast {
+        width: 100%;
+        padding: 10px;
+        justify-content: flex-start;
+        overflow: hidden;
+        overflow-x: scroll;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .cast-list .cast .img-name {
+        min-width: 80px;
+        height: 110px;
+    }
+    .cast-list .cast .img-name img {
+        height: 70%;
+    }
+    .cast-list .cast .img-name p {
+        font-size: 11px;
+    }
+    
+    /* footer -------------------------------------------------------- */
+    /* footer -------------------------------------------------------- */
+    footer .footer-con .footer-logo {
         width: 80px;
         height: 40px;
     }
-    .footer-con .footer-nav ul li {
-        margin-bottom: 3px;
+    footer .footer-con .footer-nav {
+        border-bottom: 1px solid;
     }
-    .footer-con .footer-nav ul li a {
-        font-size: 14px;
-    }
-    .footer-con .footer-nav ul li:hover a {
-        font-size: 15px;
-    }
-    .footer-con .socials i {
-        font-size: 18px;
-    }
-    .footer-con .socials i:hover {
-        font-size: 19px;
+    footer .footer-con .footer-nav ul {
+        gap: 0;
         padding: 5px;
     }
-    .right-reserved p{
-        font-size: 12px;
+    footer .footer-con .footer-nav ul li a {
+        font-size: 13px;
     }
+    footer .footer-con .socials a i {
+        font-size: 15px;
+    }
+    footer .right-reserved h3 {
+        font-size: 15px;
+    } 
+    footer .right-reserved p {
+        font-size: 13px;
+    } 
+}
+
+
+/* Media queries ----------------------------------------------- */
+/* Media queries ----------------------------------------------- */
+@media screen and (max-width: 450px) {
+
+    .film-page {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* Media queries ----------------------------------------------- */
+/* Media queries ----------------------------------------------- */
+@media screen and (max-width: 350px) {
+
+    .film-page {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
