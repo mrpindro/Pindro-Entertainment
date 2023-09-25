@@ -144,38 +144,38 @@ const homeSlider = ()=>{
         paginationBtns[1].style.background = "#555";
         paginationBtns[2].style.background = "#46d29d";
         paginationBtns[3].style.background = "#46d29d";
-    }, 4000)
+    }, 8000)
     setTimeout(()=>{
         homeBillboard.style.transform = "translateX(-200vw)";
         paginationBtns[0].style.background = "#46d29d";
         paginationBtns[1].style.background = "#46d29d";
         paginationBtns[2].style.background = "#555";
         paginationBtns[3].style.background = "#46d29d";
-    }, 8000)
+    }, 16000)
     setTimeout(()=>{
         homeBillboard.style.transform = "translateX(-300vw)";
         paginationBtns[0].style.background = "#46d29d";
         paginationBtns[1].style.background = "#46d29d";
         paginationBtns[2].style.background = "#46d29d";
         paginationBtns[3].style.background = "#555";
-    }, 12000)
-    setTimeout(()=>{
-        homeBillboard.style.transform = "translateX(-400vw)";
-    }, 16000)
-    setTimeout(()=>{
-        homeBillboard.style.transform = "translateX(-500vw)";
-    }, 20000)
-    setTimeout(()=>{
-        homeBillboard.style.transform = "translateX(-600vw)";
     }, 24000)
     setTimeout(()=>{
+        homeBillboard.style.transform = "translateX(-400vw)";
+    }, 32000)
+    setTimeout(()=>{
+        homeBillboard.style.transform = "translateX(-500vw)";
+    }, 40000)
+    setTimeout(()=>{
+        homeBillboard.style.transform = "translateX(-600vw)";
+    }, 48000)
+    setTimeout(()=>{
         homeBillboard.style.transform = "translateX(-700vw)";
-    }, 28000)
+    }, 56000)
     setTimeout(()=>{
         homeBillboard.style.transform = "translateX(-800vw)";
-    }, 32000)
+    }, 64000)
 }
-setInterval(homeSlider, 36000);
+setInterval(homeSlider, 72000);
 homeSlider();
 
 paginationBtns.forEach((slide, index)=>{
@@ -188,11 +188,18 @@ paginationBtns.forEach((slide, index)=>{
         
 // DISPLAY FILM CARD IN FILM PAGE --------------------------------------------
 const filmPage = document.querySelector('.film-page');
+const loader = document.querySelector('.loader');
 
 // Get films from database 
-window.onload = function(e) {
+// loader.style.display = 'grid';
+window.onload = function() {
     fetch(`https://pindro-entertainment-api.onrender.com/film`)
-        .then(res => res.json())
+        .then(res => {
+            if (res.ok) {
+                loader.style.display = 'none';
+            }
+            res.json()
+        })
         .then(data => {
             // display card on film page 
             for (let i = 0; i < data.length; i++) {
