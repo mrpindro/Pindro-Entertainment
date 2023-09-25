@@ -24,6 +24,7 @@ const closeLogReg = document.querySelectorAll('.closeLogReg');
 const logRegForm = document.querySelector('.logRegForm');
 const profIcons = document.querySelector('.profIcons');
 const profLists = document.querySelector('.profLists');
+const profListsChild = document.querySelectorAll('.mobile-nav');
 const accountLogin = document.querySelector('.accountLogin');
 const improvReg = document.querySelector('#improvReg');
 const improvLog = document.querySelector('#improvLog');
@@ -33,6 +34,13 @@ const login = document.querySelector('.login');
 profIcons.onclick = () => {
     profLists.classList.toggle("profList");
 }
+
+profListsChild.forEach(para => {
+    para.addEventListener('click', () => {
+        profLists.style.display = 'none';
+        profLists.classList.toggle("profList");
+    })
+})
 
 closeLogReg.forEach(closure => {
     closure.onclick = () => {
@@ -75,59 +83,9 @@ const playVideo = (file) => {
     videos.play();
 }
 
-
-
 // // HOME PAGE, PAGINATIONS AND SLIDERS BTNS 
 const homeBillboard = document.querySelector('.home-billboard');
 const paginationBtns = document.querySelectorAll('.pagination-btn');
-
-// Get films from database 
-window.addEventListener('load', function(e) {
-    fetch(`https://pindro-entertainment-api.onrender.com/film`)
-        .then(res => res.json())
-        .then(data => {
-            for (let i = 0; i < data.length; i++) {
-                const homePage = document.createElement('div');
-                homePage.className = "home-page";
-                const synopTitleEtc = document.createElement('div');
-                synopTitleEtc.className = 'synop-title-etc';
-                synopTitleEtc.innerHTML = `
-                    <h2 class="title">
-                    ${data[i].title}                              
-                    </h2>
-                    <p class="year">
-                        Production: ${data[i].year}
-                    </p>
-                    <p class="description">
-                        ${data[i].description}
-                    </p>
-                `
-                const bgImg = document.createElement('div');
-                bgImg.className = 'big-img';
-                bgImg.innerHTML=`
-                    <img src="${data[i].image}" alt="">
-                `
-
-                const playBtn = document.createElement('button');
-                
-                playBtn.className = 'duration-playfilm';
-                playBtn.innerHTML = `
-                    ${data[i].duration} <i class="fa-solid fa-play"></i>
-                `
-
-                synopTitleEtc.appendChild(playBtn);
-                homePage.append(synopTitleEtc, bgImg)
-                
-                playBtn.onclick = () => {
-                    playVideo(data[i].trailer);
-                }
-
-                homeBillboard.appendChild(homePage);
-            }
-        })
-        .catch(err => console.log(err))
-    ;
-})
 
 const homeSlider = ()=>{
 
@@ -191,18 +149,63 @@ const filmPage = document.querySelector('.film-page');
 const loader = document.querySelector('.loader');
 
 // Get films from database 
-// loader.style.display = 'grid';
 window.onload = function() {
+
+    // // HOME PAGE, PAGINATIONS AND SLIDERS BTNS 
     fetch(`https://pindro-entertainment-api.onrender.com/film`)
-        .then(res => {
-            if (res.ok) {
+        .then(res => res.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                const homePage = document.createElement('div');
+                homePage.className = "home-page";
+                const synopTitleEtc = document.createElement('div');
+                synopTitleEtc.className = 'synop-title-etc';
+                synopTitleEtc.innerHTML = `
+                    <h2 class="title">
+                    ${data[i].title}                              
+                    </h2>
+                    <p class="year">
+                        Production: ${data[i].year}
+                    </p>
+                    <p class="description">
+                        ${data[i].description}
+                    </p>
+                `
+                const bgImg = document.createElement('div');
+                bgImg.className = 'big-img';
+                bgImg.innerHTML=`
+                    <img src="${data[i].image}" alt="">
+                `
+
+                const playBtn = document.createElement('button');
+                
+                playBtn.className = 'duration-playfilm';
+                playBtn.innerHTML = `
+                    ${data[i].duration} <i class="fa-solid fa-play"></i>
+                `
+
+                synopTitleEtc.appendChild(playBtn);
+                homePage.append(synopTitleEtc, bgImg)
+                
+                playBtn.onclick = () => {
+                    playVideo(data[i].trailer);
+                }
+
+                homeBillboard.appendChild(homePage);
+            }
+        })
+        .catch(err => console.log(err))
+    ;
+
+    // DISPLAY FILM CARD IN FILM PAGE --------------------------------------------
+    fetch(`https://pindro-entertainment-api.onrender.com/film`)
+        .then((res) => res.json())
+        .then(data => {
+            if (data) {
                 loader.style.display = 'none';
             }
-            res.json()
-        })
-        .then(data => {
             // display card on film page 
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i < data?.length; i++) {
                 const card = document.createElement('a');
                 card.className = 'card';
                 card.innerHTML += `
@@ -266,6 +269,7 @@ window.onload = function() {
                         film.cast_names[0], film.cast_names[1], film.cast_names[2], 
                         film.cast_names[3], film.cast_names[4]
                     );
+                    mySearchMenu.style.display = "none";
                     // trailer.addEventListener('click', film.playVideo)
                 });
 

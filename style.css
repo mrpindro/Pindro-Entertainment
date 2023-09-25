@@ -60,13 +60,25 @@ body {
     z-index: 99;
     background-color: var(--black);
     display: grid;
+    /* display: none; */
     place-content: center;
 }
 .loader .load {
     border-radius: 50%;
     padding: 100px;
+    border: 10px solid var(--grey);
     border-top: 10px solid var(--white);
-    animation: spin infinite 1s;
+    -webkit-animation: spin linear infinite 2s;
+    animation: spin linear infinite 2s;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 @keyframes spin {
@@ -764,10 +776,12 @@ section {
 /* Films page ===========================================================  */
 /* Films page ===========================================================  */
 .films-container {
+    min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: flex-start; */
     padding: 10px;
     overflow-x: hidden;
 }
@@ -779,6 +793,8 @@ section {
     color: var(--grey);
 }
 .film-page {
+    /* position: absolute;
+    z-index: 1; */
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     padding: 10px;
@@ -996,6 +1012,7 @@ section {
 .synopsis-content p span {
     display: block;
     font-size: 30px;
+    font-weight: 600;
 }
 .synopsis-content .synop-content {
     display: flex;
@@ -1741,4 +1758,8 @@ footer .right-reserved p{
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .synopsis-content p span {
+        font-size: 18px;
+        padding: 5px;
+    }
 }
