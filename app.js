@@ -1,3 +1,4 @@
+import { fetchFilm } from "./api.js";
 import navToFilm, { displayCastImg, displayCastName } from "./navToFilm.js";
 import { showCategories } from "./showCategories.js";
 
@@ -37,7 +38,7 @@ profIcons.onclick = () => {
 
 profListsChild.forEach(para => {
     para.addEventListener('click', () => {
-        profLists.style.display = 'none';
+        // profLists.style.display = 'none';
         profLists.classList.toggle("profList");
     })
 })
@@ -152,7 +153,7 @@ const loader = document.querySelector('.loader');
 window.onload = function() {
 
     // // HOME PAGE, PAGINATIONS AND SLIDERS BTNS 
-    fetch(`https://pindro-entertainment-api.onrender.com/film`)
+    fetch(`${fetchFilm}/film`)
         .then(res => res.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {
@@ -198,7 +199,7 @@ window.onload = function() {
     ;
 
     // DISPLAY FILM CARD IN FILM PAGE --------------------------------------------
-    fetch(`https://pindro-entertainment-api.onrender.com/film`)
+    fetch(`${fetchFilm}/film`)
         .then((res) => res.json())
         .then(data => {
             if (data) {

@@ -1,14 +1,13 @@
+import { fetchFilm } from "./api.js";
 import handleCategoryBtn from "./categoryBtns.js";
 import navToFilm, { displayCastImg, displayCastName } from "./navToFilm.js";
 
 
 export const showCategories = () => {
 
-    fetch('https://pindro-entertainment-api.onrender.com/film')
+    fetch(`${fetchFilm}/film`)
         .then(res => res.json())
         .then(data => {   
-            // const category = document.querySelector('.category');
-            // const categoryBtns = document.querySelectorAll('.category-btn');
             const actionBox = document.querySelector('.action-bx');
             const crimeBox = document.querySelector('.crime-bx');
             const documentaryBox = document.querySelector('.documentary-bx');
